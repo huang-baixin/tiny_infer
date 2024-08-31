@@ -3,7 +3,7 @@
 #ifndef _COMMON_H
 #define _COMMON_H
 
-#define CHECK_CUDA(call)                                                            \
+#define CUDA_CHECK(call)                                                            \
 {                                                                              \
     const cudaError_t error = call;                                            \
     if (error != cudaSuccess)                                                  \

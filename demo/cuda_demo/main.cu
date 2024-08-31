@@ -23,7 +23,7 @@ enum tensor_backend {
     TENSOR_BACKEND_VULKEN,
 };
 
-struct tensor {
+struct nn_tensor {
     int dims[TENSOR_MAX_DIM];
     tensor_type type;
     tensor_backend backend;
@@ -99,9 +99,9 @@ void get_cuda_device_info() {
     }
 
     int dev = 0, driverVersion = 0, runtimeVersion = 0;
-    CHECK_CUDA(cudaSetDevice(dev));
+    CUDA_CHECK(cudaSetDevice(dev));
     cudaDeviceProp deviceProp;
-    CHECK_CUDA(cudaGetDeviceProperties(&deviceProp, dev));
+    CUDA_CHECK(cudaGetDeviceProperties(&deviceProp, dev));
     printf("Device %d: \"%s\"\n", dev, deviceProp.name);
 
     cudaDriverGetVersion(&driverVersion);
@@ -165,10 +165,10 @@ void get_cuda_device_info() {
 
 }
 
-__global__ void helloFromGPU()
-{
-    printf("Hello World from GPU!\n");
-}
+// __global__ void helloFromGPU()
+// {
+//     printf("Hello World from GPU!\n");
+// }
 
 
 
@@ -220,7 +220,7 @@ void initial_data(void* ptr, size_t size) {
 }
 
 
-void sum_array_f32(struct *tensor src0, struct *tensor src1, struct *tensor dst, size_t size) {
+void sum_array_f32(struct nn_tensor* src0, struct nn_tensor* src1, struct nn_tensor* dst, size_t size) {
     float* p_src0= (float*)src0->data;
     float* p_src1 = (float*)src1->data;
     float* p_dst = (float*)dst->data;
@@ -229,21 +229,10 @@ void sum_array_f32(struct *tensor src0, struct *tensor src1, struct *tensor dst,
     }
 }
 
-__global__ sum_array_f32(struct *tensor src0, struct *tensor src1, struct *tensor dst) {
-    int idx = threadIdx.x;
-    dst[idx] = src0[idx] + src1[idx];
-}
-
-
-float tensor_distance_cos(const struct *tensor src0, const struct *tensor src1) {
-
-}
-
-
 void test_array_sum() {
 
     int dev = 0;
-    CHECK(cudaSetDevice(dev));
+    CUDA_CHECK(cudaSetDevice(dev));
 
     // set up data size of vectors
     int nElem = 1 << 5;
@@ -267,14 +256,14 @@ void test_array_sum() {
 
     // malloc device global memory
     float *d_A, *d_B, *d_C;
-    CHECK(cudaMalloc((float**)&d_A, nBytes));
-    CHECK(cudaMalloc((float**)&d_B, nBytes));
-    CHECK(cudaMalloc((float**)&d_C, nBytes));
+    CUDA_CHECK(cudaMalloc((float**)&d_A, nBytes));
+    CUDA_CHECK(cudaMalloc((float**)&d_B, nBytes));
+    CUDA_CHECK(cudaMalloc((float**)&d_C, nBytes));
 
     // transfer data from host to device
-    CHECK(cudaMemcpy(d_A, h_A, nBytes, cudaMemcpyHostToDevice));
-    CHECK(cudaMemcpy(d_B, h_B, nBytes, cudaMemcpyHostToDevice));
-    CHECK(cudaMemcpy(d_C, gpuRef, nBytes, cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(d_A, h_A, nBytes, cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(d_B, h_B, nBytes, cudaMemcpyHostToDevice));
+    CUDA_CHECK(cudaMemcpy(d_C, gpuRef, nBytes, cudaMemcpyHostToDevice));
 
     // invoke kernel at host side
     dim3 block (nElem);
@@ -282,6 +271,12 @@ void test_array_sum() {
 }
 
 
+
+// TODO Lists:
+// 1. impl quantize tensor
+// 2. impl  
+// 3. 
+// 4. 
 
 
 
