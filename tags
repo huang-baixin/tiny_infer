@@ -1,0 +1,71 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/hbx/proj/tiny_infer/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+%	demo/cuda_demo/Makefile	/^%: %.cu$/;"	t
+APPS	demo/cuda_demo/Makefile	/^APPS=main$/;"	m
+CHECK_CUBLAS	demo/cuda_demo/common.h	/^#define CHECK_CUBLAS(/;"	d
+CHECK_CUDA	demo/cuda_demo/common.h	/^#define CHECK_CUDA(/;"	d
+CHECK_CUFFT	demo/cuda_demo/common.h	/^#define CHECK_CUFFT(/;"	d
+CHECK_CURAND	demo/cuda_demo/common.h	/^#define CHECK_CURAND(/;"	d
+CHECK_CUSPARSE	demo/cuda_demo/common.h	/^#define CHECK_CUSPARSE(/;"	d
+TENSOR_BACKEND_CPU	demo/cuda_demo/main.cu	/^    TENSOR_BACKEND_CPU,$/;"	e	enum:tensor_backend	file:
+TENSOR_BACKEND_CUDA	demo/cuda_demo/main.cu	/^    TENSOR_BACKEND_CUDA,$/;"	e	enum:tensor_backend	file:
+TENSOR_BACKEND_VULKEN	demo/cuda_demo/main.cu	/^    TENSOR_BACKEND_VULKEN,$/;"	e	enum:tensor_backend	file:
+TENSOR_MAX_DIM	demo/cuda_demo/main.cu	/^#define TENSOR_MAX_DIM /;"	d	file:
+TENSOR_TYPE_Q4	demo/cuda_demo/main.cu	/^    TENSOR_TYPE_Q4,$/;"	e	enum:tensor_type	file:
+TENSOR_TYPE_Q8	demo/cuda_demo/main.cu	/^    TENSOR_TYPE_Q8,$/;"	e	enum:tensor_type	file:
+TENSOR_TYPE_f16	demo/cuda_demo/main.cu	/^    TENSOR_TYPE_f16,$/;"	e	enum:tensor_type	file:
+TENSOR_TYPE_f32	demo/cuda_demo/main.cu	/^    TENSOR_TYPE_f32,$/;"	e	enum:tensor_type	file:
+_COMMON_H	demo/cuda_demo/common.h	/^#define _COMMON_H$/;"	d
+all	demo/cuda_demo/Makefile	/^all: ${APPS}$/;"	t
+alloc	demo/cuda_demo/main.cu	/^    void* alloc(size_t size) {$/;"	f	struct:host_tensor_allocator	typeref:typename:void *	file:
+backend	demo/cuda_demo/main.cu	/^    tensor_backend backend;$/;"	m	struct:tensor	typeref:typename:tensor_backend	file:
+begin	demo/cuda_demo/main.cu	/^        char* begin;$/;"	m	struct:host_tensor_allocator::mem_block	typeref:typename:char *	file:
+cc	demo/cuda_demo/main.cu	/^    int cc;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+clean	demo/cuda_demo/Makefile	/^clean:$/;"	t
+cpu_device_info	demo/cuda_demo/main.cu	/^struct cpu_device_info {$/;"	s	file:
+cuda_device_info	demo/cuda_demo/main.cu	/^struct cuda_device_info {$/;"	s	file:
+data	demo/cuda_demo/main.cu	/^    char* data;$/;"	m	struct:host_tensor_allocator	typeref:typename:char *	file:
+data	demo/cuda_demo/main.cu	/^    void* data;$/;"	m	struct:tensor	typeref:typename:void *	file:
+device_name	demo/cuda_demo/main.cu	/^    char device_name[128] ;$/;"	m	struct:cuda_device_info	typeref:typename:char[128]	file:
+dict	demo/cuda_demo/main.cu	/^    std::map<int, mem_block> dict; \/\/ $/;"	m	struct:host_tensor_allocator	typeref:typename:std::map<int,mem_block>	file:
+dims	demo/cuda_demo/main.cu	/^    int dims[TENSOR_MAX_DIM];$/;"	m	struct:tensor	typeref:typename:int[]	file:
+get_cuda_device_info	demo/cuda_demo/main.cu	/^void get_cuda_device_info() {$/;"	f	typeref:typename:void
+gpu_clock_rate	demo/cuda_demo/main.cu	/^    int gpu_clock_rate;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+helloFromGPU	demo/cuda_demo/main.cu	/^__global__ void helloFromGPU()$/;"	f	typeref:typename:void
+host_tensor_allocator	demo/cuda_demo/main.cu	/^struct host_tensor_allocator {$/;"	s	file:
+init	demo/cuda_demo/main.cu	/^    void init() {$/;"	f	struct:cuda_device_info	typeref:typename:void	file:
+init	demo/cuda_demo/main.cu	/^    void init() {$/;"	f	struct:host_tensor_allocator	typeref:typename:void	file:
+initial_data	demo/cuda_demo/main.cu	/^void initial_data(void* ptr, size_t size) {$/;"	f	typeref:typename:void
+l1_cache_size	demo/cuda_demo/main.cu	/^    int l1_cache_size;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+l2_cache_size	demo/cuda_demo/main.cu	/^    int l2_cache_size;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+main	demo/cuda_demo/main.cu	/^int main(int argc, char **argv)$/;"	f	typeref:typename:int
+max_ith_block	demo/cuda_demo/main.cu	/^    int max_ith_block;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+max_ith_sm	demo/cuda_demo/main.cu	/^    int max_ith_sm;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+mem_block	demo/cuda_demo/main.cu	/^    struct mem_block {$/;"	s	struct:host_tensor_allocator	file:
+mem_clock_rate	demo/cuda_demo/main.cu	/^    int mem_clock_rate;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+memory_bus_width	demo/cuda_demo/main.cu	/^    float memory_bus_width;$/;"	m	struct:cuda_device_info	typeref:typename:float	file:
+op_config_cuda	demo/cuda_demo/main.cu	/^struct op_config_cuda {$/;"	s	file:
+op_turing	demo/cuda_demo/main.cu	/^void op_turing() {$/;"	f	typeref:typename:void
+seconds	demo/cuda_demo/common.h	/^inline double seconds()$/;"	f	typeref:typename:double
+size	demo/cuda_demo/main.cu	/^        size_t size;$/;"	m	struct:host_tensor_allocator::mem_block	typeref:typename:size_t	file:
+smem_size	demo/cuda_demo/main.cu	/^    int smem_size;$/;"	m	struct:cuda_device_info	typeref:typename:int	file:
+sum_array_f32	demo/cuda_demo/main.cu	/^__global__ sum_array_f32(struct *tensor src0, struct *tensor src1, struct *tensor dst) {$/;"	f
+sum_array_f32	demo/cuda_demo/main.cu	/^void sum_array_f32(struct *tensor src0, struct *tensor src1, struct *tensor dst, size_t size) {$/;"	f	typeref:typename:void
+tensor	demo/cuda_demo/main.cu	/^struct tensor {$/;"	s	file:
+tensor_backend	demo/cuda_demo/main.cu	/^enum tensor_backend {$/;"	g	file:
+tensor_distance_cos	demo/cuda_demo/main.cu	/^float tensor_distance_cos(const struct *tensor src0, const struct *tensor src1) {$/;"	f	typeref:typename:float
+tensor_type	demo/cuda_demo/main.cu	/^enum tensor_type {$/;"	g	file:
+test_array_sum	demo/cuda_demo/main.cu	/^void test_array_sum() {$/;"	f	typeref:typename:void
+test_host_mem_pool	demo/cuda_demo/main.cu	/^void test_host_mem_pool() {$/;"	f	typeref:typename:void
+tiny_infer	README.md	/^# tiny_infer/;"	c
+type	demo/cuda_demo/main.cu	/^    tensor_type type;$/;"	m	struct:tensor	typeref:typename:tensor_type	file:
+used	demo/cuda_demo/main.cu	/^        bool used;$/;"	m	struct:host_tensor_allocator::mem_block	typeref:typename:bool	file:

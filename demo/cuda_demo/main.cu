@@ -282,11 +282,12 @@ void test_array_sum() {
 
 
 
+
+
+
 int main(int argc, char **argv)
 {
-    // printf("Hello World from CPU!\n");
-    // helloFromGPU<<<1, 10>>>();
-    // CHECK_CUDA(cudaDeviceReset());
+    CUDA_CHECK(cudaDeviceReset());
     get_cuda_device_info();
 
     return 0;
